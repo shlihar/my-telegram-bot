@@ -359,14 +359,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await send_user_menu(user_id, context)  # Передаємо user_id замість update
     await send_persistent_keyboard(update, context)  # Показуємо кнопки меню та підтримки
 
+# Головна функція
 def main():
-    application = Application.builder().token(os.getenv("TOKEN")).build()
+    application = Application.builder().token("7362910993:AAFxDBixzl1DOl9msPK4jjvaL1ASifrfvPQ").build()
 
     # Обробка команд та повідомлень
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-
-    # Запуск бота
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))  # Використання handle_message
     application.run_polling()
 
+if __name__ == '__main__':
+    main()
