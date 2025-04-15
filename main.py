@@ -6,6 +6,8 @@ import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, ContextTypes, filters
 from modules.send import receive_link  # Імпорт функції receive_link з send.py
+import os
+TOKEN = os.getenv("TOKEN")
 
 # Налаштування логування
 logging.basicConfig(
@@ -357,17 +359,21 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await send_user_menu(user_id, context)  # Передаємо user_id замість update
     await send_persistent_keyboard(update, context)  # Показуємо кнопки меню та підтримки
 
-# Головна функція
 def main():
-    application = Application.builder().token("7362910993:AAFxDBixzl1DOl9msPK4jjvaL1ASifrfvPQ").build()
+    application = Application.builder().token(TOKEN).build()
 
     # Обробка команд та повідомлень
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))  # Використання handle_message
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-    # Запуск бота
-    application.run_polling()
+    # WEBHOOK URL (Render URL з .env)
+    WEBHOOK_URL = os.getenv("APP_URL") + f"/webhook/{TOKEN}"
 
-if __name__ == '__main__':
-    main()
+    # Запуск бота через webhook
+    application.run_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get('PORT', '10000')),
+        webhook_url=WEBHOOK_URL,
+    )
+
