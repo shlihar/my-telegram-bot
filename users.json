@@ -1,0 +1,48 @@
+{
+    "422843840": {
+        "first_name": "Andrei",
+        "last_name": "",
+        "user_id": 422843840,
+        "tariff": "\u0411\u0456\u0437\u043d\u0435\u0441",
+        "active_sites": 2,
+        "max_sites": 100,
+        "balance": 1000,
+        "sites": [
+            "http://3v1duhovka.top-price.store/?fbclid=PAZXh0bgNhZW0BMAABpvZA9EaI23kvpXvao8wEluoxM1JYg8gooZjrOcXkM9BRAwj1KNbIQ8ohMg_aem_2GKvTQNKIrAEKbmp85atmw",
+            "http://3v1duhovka.top-price.store/?fbclid=PAZXh0bgNhZW0BMAABpvZA9EaI23kvpXvao8wEluoxM1JYg8gooZjrOcXkM9BRAwj1KNbIQ8ohMg_aem_2GKvTQNKIrAEKbmp85atmw",
+            "https://duhovka.3v1.trend-towar.com.ua/?fbclid=PAZXh0bgNhZW0BMAABpquQfPW1bhMX6j1_q0a5ztCg22nJ6bBjgvcYWv6tDZl5IdP-h6d1X1t5rg_aem_O-wF88Fm51Ef4rmy7Q5NoA",
+            "https://cozychic.com.ua/electrokovdra",
+            "https://duhovka.3v1.trend-towar.com.ua/?fbclid=PAZXh0bgNhZW0BMAABpquQfPW1bhMX6j1_q0a5ztCg22nJ6bBjgvcYWv6tDZl5IdP-h6d1X1t5rg_aem_O-wF88Fm51Ef4rmy7Q5NoA",
+            "https://duhovka.3v1.trend-towar.com.ua/?fbclid=PAZXh0bgNhZW0BMAABpquQfPW1bhMX6j1_q0a5ztCg22nJ6bBjgvcYWv6tDZl5IdP-h6d1X1t5rg_aem_O-wF88Fm51Ef4rmy7Q5NoA",
+            "https://duhovka.3v1.trend-towar.com.ua/?fbclid=PAZXh0bgNhZW0BMAABpquQfPW1bhMX6j1_q0a5ztCg22nJ6bBjgvcYWv6tDZl5IdP-h6d1X1t5rg_aem_O-wF88Fm51Ef4rmy7Q5NoA"
+        ],
+        "domens": [
+            "\u0440\u043f\u0440\u043f\u043e\u0440\u043f\u043e",
+            "cozychic.com.ua",
+            "fsdfsddfssfd"
+        ],
+        "expected_amount": 1230.48,
+        "tariff_active": true,
+        "available_sites": 26,
+        "new_tariff": "\u041f\u0440\u043e"
+    },
+    "361282954": {
+        "tariff": "\u0417\u0432\u0438\u0447\u0430\u0439\u043d\u0438\u0439",
+        "sites": [
+            "https://invertorsine.usniqshop.space/?fbpixel=26503223799268547&fbclid=PAZXh0bgNhZW0BMAABpn7GbfEyRk0kuHFgBvluSHoEY7d83nDBmAeAukbNVU8rw81rbVsdxry2Qw_aem_O6HR_Lfn_lQv9nYTHJEPQQ"
+        ],
+        "domens": [],
+        "expected_amount": 410.51,
+        "available_sites": 0,
+        "new_tariff": "\u0417\u0432\u0438\u0447\u0430\u0439\u043d\u0438\u0439"
+    },
+    "896647651": {
+        "tariff": "\u0417\u0432\u0438\u0447\u0430\u0439\u043d\u0438\u0439",
+        "sites": [
+            "https://invertorsine.usniqshop.space/?fbpixel=26503223799268547&fbclid=PAZXh0bgNhZW0BMAABpn7GbfEyRk0kuHFgBvluSHoEY7d83nDBmAeAukbNVU8rw81rbVsdxry2Qw_aem_O6HR_Lfn_lQv9nYTHJEPQQ"
+        ],
+        "domens": [],
+        "expected_amount": 0,
+        "available_sites": 0
+    }
+}
