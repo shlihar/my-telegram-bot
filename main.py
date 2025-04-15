@@ -6,6 +6,10 @@ import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, ContextTypes, filters
 from modules.send import receive_link  # Імпорт функції receive_link з send.py
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
+
 import os
 TOKEN = os.getenv("TOKEN")
 
@@ -358,22 +362,27 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     await send_user_menu(user_id, context)  # Передаємо user_id замість update
     await send_persistent_keyboard(update, context)  # Показуємо кнопки меню та підтримки
+class SimpleHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running.")
+
+def run_fake_web_server():
+    port = int(os.environ.get("PORT", 10000))  # Render вимагає відкритий порт
+    server = HTTPServer(("0.0.0.0", port), SimpleHandler)
+    print(f"Fake web server listening on port {port}")
+    server.serve_forever()
 
 def main():
     application = Application.builder().token(TOKEN).build()
-
-    # Обробка команд та повідомлень
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+threading.Thread(target=run_fake_web_server, daemon=True).start()
 
-    # WEBHOOK URL (Render URL з .env)
-    WEBHOOK_URL = os.getenv("APP_URL") + f"/webhook/{TOKEN}"
+    application.run_polling()
 
-    # Запуск бота через webhook
-    application.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get('PORT', '10000')),
-        webhook_url=WEBHOOK_URL,
-    )
+if __name__ == '__main__':
+    main()
 
